@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nithya Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  /* ---------- PREMIUM RESUME BUTTON ---------- */
+
+.about-btn {
+    margin-top: 30px;
+    padding: 10px 28px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover lift + glow */
+.about-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(13, 110, 253, 0.35);
+}
+
+/* Shine animation effect */
+.about-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.about-btn:hover::before {
+    left: 100%;
+}
+.about-btn {
+    animation: buttonFloat 3s ease-in-out infinite;
+}
+
+@keyframes buttonFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+/* ---------- MOBILE BUTTON OPTIMIZATION ---------- */
+
+@media (max-width: 768px) {
+
+    .about-btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .about-btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+}
+.about-btn:active {
+    transform: scale(0.97);
+}
+/* ---------- SKILLS PREMIUM EFFECT ---------- */
+.skill-icon {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Hover effect */
+.col-lg-3:hover .skill-icon {
+    transform: translateY(-10px) scale(1.08);
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+}
+
+/* Smooth text lift */
+.col-lg-3 {
+    transition: transform 0.4s ease;
+}
+
+.col-lg-3:hover {
+    transform: translateY(-5px);
+}
+.skill-icon {
+    animation: floatSkill 4s ease-in-out infinite;
+}
+
+@keyframes floatSkill {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* ---------- GLOBAL ---------- */
+body {
+    background: #fdf6f0;
+    padding-top: 80px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    background: #2f3e46;
+    transition: 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: #ffffff !important;
+}
+
+.nav-link {
+    margin-left: 15px;
+    font-weight: 500;
+    color: #e9ecef !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00b4d8 !important;
+}
+/* ---------- NAVBAR ANIMATION ---------- */
+
+/* Smooth transition */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Underline animation */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #00b4d8;
+    transition: width 0.3s ease;
+}
+
+/* On hover */
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Active section highlight */
+.nav-link.active {
+    color: #00b4d8 !important;
+}
+
+/* Navbar shadow when scrolling */
+.navbar.scrolled {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+/* ---------- ABOUT SECTION ---------- */
+
+#about {
+    background: #fcefee;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInLeft 1s ease forwards;
+}
+
+/* Soft hover zoom effect */
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* About Text */
+.about-text {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: #212529;
+    animation: fadeInRight 1s ease forwards;
+}
+.about-btn {
+    margin-top: 30px;
+}
+/* ---------- Animations ---------- */
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* ---------- PROJECTS ---------- */
+#projects {
+    background: #f8f9fa;
+}
+
+.project-img {
+    height: 220px;
+    object-fit: cover;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.card {
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- SKILLS ---------- */
+#skills {
+    background: #eef7ff;
+}
+
+.skill-icon {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* ---------- CONTACT ---------- */
+#contact {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 100px 0;
+}
+
+.contact-box {
+    background: #1c1c1c;
+    padding: 40px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.contact-icon {
+    width: 28px;
+    margin-right: 15px;
+}
+
+.social-circle {
+    width: 65px;
+    height: 65px;
+    background: #2a2a2a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-circle:hover {
+    background: #0d6efd;
+    transform: translateY(-6px);
+}
+
+.social-circle img {
+    width: 28px;
+}
+/* Mobile navbar spacing fix */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+}
+.skill-icon {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#">Nithya Shree</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="nav">
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ABOUT -->
+<section id="about" class="py-3">
+  <div class="container">
+
+    <h1 class="display-2 fw-bold text-center mb-5">About</h1>
+
+    <div class="row align-items-center justify-content-center">
+
+      <!-- Profile Image -->
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img src="images/about/about.png" class="profile-img">
+      </div>
+
+      <!-- About Text + Resume Buttons -->
+      <div class="col-md-6 text-center text-md-start">
+
+        <p class="about-text">
+          Detail-oriented Data Engineering enthusiast with strong skills in SQL and Python. Experienced in building ETL pipelines and working with relational databases.
+</p>
+
+        <p class="about-text">
+          Passionate about transforming raw data into meaningful insights and developing scalable data solutions.
+</p>
+
+        <!-- Resume Buttons -->
+        <a href="resume/Nithya_Resume.pdf"
+           class="btn btn-primary about-btn" target="_blank">
+    View Resume
+</a>
+      </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-5 text-center">
+<div class="container">
+<h1 class="display-3 fw-bold mb-5">Projects</h1>
+<div class="row g-4">
+
+<!-- PROJECT CARD TEMPLATE -->
+<!-- Replace YOUR_GITHUB_LINK with actual repo link -->
+
+<div class="col-md-6 col-lg-4">
+<div class="card h-100 shadow-sm">
+<img src="images/Projects/1. Habit Tracker.png" class="card-img-top project-img"
+data-bs-toggle="modal" data-bs-target="#modal1">
+<div class="card-body">
+<h5 class="fw-bold">Habit Tracker Dashboard</h5>
+<p class="text-muted">Habit analytics dashboard to track daily progress.</p>
+<a href="https://github.com/nithyashree1007/Habit-Tracker" target="_blank" class="btn btn-dark mt-3">GitHub Repo</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4">
+<div class="card h-100 shadow-sm">
+<img src="images/Projects/2. Cash Flow & Expense Intelligence.png" class="card-img-top project-img"
+data-bs-toggle="modal" data-bs-target="#modal2">
+<div class="card-body">
+<h5 class="fw-bold">Cash Flow & Expense Intelligence</h5>
+<p class="text-muted">Financial forecasting and analytics dashboard.</p>
+<a href="https://github.com/nithyashree1007/Cashflow-Expense-Intelligence-Dashboard-excel" target="_blank" class="btn btn-dark mt-3">GitHub Repo</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4">
+<div class="card h-100 shadow-sm">
+<img src="images/Projects/3. Marketing Performance Analysis & ROI.png" class="card-img-top project-img"
+data-bs-toggle="modal" data-bs-target="#modal3">
+<div class="card-body">
+<h5 class="fw-bold">Marketing Performance & ROI</h5>
+<p class="text-muted">Campaign ROI and conversion analysis.</p>
+<a href="https://github.com/nithyashree1007/Marketing-Campaign-ROI-Analysis-Power-Bi" target="_blank" class="btn btn-dark mt-3">GitHub Repo</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4">
+<div class="card h-100 shadow-sm">
+<img src="images/Projects/4. Marketing Campaign Performance.png" class="card-img-top project-img"
+data-bs-toggle="modal" data-bs-target="#modal4">
+<div class="card-body">
+<h5 class="fw-bold">Campaign Performance Dashboard</h5>
+<p class="text-muted">Marketing engagement and KPI dashboard.</p>
+<a href="https://github.com/nithyashree1007/Marketing_Campaign_Performance_Analysis" target="_blank" class="btn btn-dark mt-3">GitHub Repo</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4">
+<div class="card h-100 shadow-sm">
+<img src="images/Projects/5. Superstore Analysis.png" class="card-img-top project-img"
+data-bs-toggle="modal" data-bs-target="#modal5">
+<div class="card-body">
+<h5 class="fw-bold">Superstore Sales Analysis</h5>
+<p class="text-muted">Retail sales and profitability insights.</p>
+<a href="https://github.com/nithyashree1007/Superstore_Sales_Dashboard" target="_blank" class="btn btn-dark mt-3">GitHub Repo</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4">
+<div class="card h-100 shadow-sm">
+<img src="images/Projects/6. KFC Sales & Offer Performance Analysis.png" class="card-img-top project-img"
+data-bs-toggle="modal" data-bs-target="#modal6">
+<div class="card-body">
+<h5 class="fw-bold">KFC Sales & Offer Analysis</h5>
+<p class="text-muted">Promotional performance optimization dashboard.</p>
+<a href="https://github.com/nithyashree1007/KFC-Sales-Offer-Performance-Analysis" target="_blank" class="btn btn-dark mt-3">GitHub Repo</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= SKILLS (ALL 12) ================= -->
+<section id="skills" class="py-5 text-center">
+<div class="container">
+<h1 class="display-3 fw-bold mb-5">Skills</h1>
+<div class="row g-5">
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/9. Python.png" class="skill-icon">
+  <h5>Python</h5>
+  <p>Data manipulation, automation, and visualization.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/4. SQL.png" class="skill-icon">
+  <h5>SQL</h5>
+  <p>Optimized queries, joins, aggregations, and database management.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/11. Microsoft Azure.png" class="skill-icon">
+  <h5>Microsoft Azure</h5>
+  <p>Cloud-based analytics and deployment solutions.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/10. PySpark.png" class="skill-icon">
+  <h5>PySpark</h5>
+  <p>Large-scale distributed data processing.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/2. Powerbi.png" class="skill-icon">
+  <h5>Power BI</h5>
+  <p>Interactive dashboards, DAX calculations, and business intelligence reporting.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/3. Tableau.png" class="skill-icon">
+  <h5>Tableau</h5>
+  <p>Data storytelling and visual analytics dashboards.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/1.Excel.png" class="skill-icon">
+  <h5>Excel</h5>
+  <p>Advanced Excel for pivot tables, dashboards, automation, and reporting.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/5. ETL.png" class="skill-icon">
+  <h5>ETL</h5>
+  <p>Extracting, transforming, and loading structured data pipelines.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/8. Statistics.png" class="skill-icon">
+  <h5>Statistics</h5>
+  <p>Probability, hypothesis testing, and predictive analysis.</p>
+</div>
+
+<div class="col-md-6 col-lg-3">
+  <img src="images/skills/12. Databricks.png" class="skill-icon">
+  <h5>Databricks</h5>
+  <p>Building scalable data pipelines, Spark-based processing, and collaborative cloud analytics workflows.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT (UNCHANGED) -->
+<section id="contact" class="text-center">
+<div class="container">
+<h1 class="display-3 fw-bold mb-5">Contact Me</h1>
+
+<div class="row justify-content-center mb-5">
+
+<!-- EMAIL -->
+<div class="col-md-5 mb-4">
+<div class="contact-box d-flex align-items-center justify-content-center">
+
+<!-- Gmail SVG -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="28"
+     height="28"
+     fill="currentColor"
+     class="me-3"
+     viewBox="0 0 16 16">
+  <path d="M0 4a2 2 0 0 1 2-2h1.2l4.8 3.6L12.8 2H14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-1.2L8 10.4 3.2 14H2a2 2 0 0 1-2-2V4z"/>
+</svg>
+
+<a href="mailto:urznithya123@gmail.com"
+   class="text-white text-decoration-none">
+   urznithya123@gmail.com
+</a>
+
+</div>
+</div>
+
+<!-- PHONE -->
+<div class="col-md-5 mb-4">
+<div class="contact-box d-flex align-items-center justify-content-center">
+
+<!-- Phone SVG -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="28"
+     height="28"
+     fill="currentColor"
+     class="me-3"
+     viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 1 .737-.17l2.522 1.01c.329.132.54.454.513.806l-.2 2.57a.678.678 0 0 1-.58.622l-1.42.213a11.72 11.72 0 0 0 5.516 5.516l.213-1.42a.678.678 0 0 1 .622-.58l2.57-.2a.678.678 0 0 1 .806.513l1.01 2.522a.678.678 0 0 1-.17.737l-1.272 1.272c-.293.293-.707.403-1.104.294C5.884 14.41 1.59 10.116.234 4.03a1.678 1.678 0 0 1 .294-1.104L1.8 1.654c.293-.293.707-.403 1.104-.326z"/>
+</svg>
+
+<a href="tel:+918680888503"
+   class="text-white text-decoration-none">
+   +91 8680888503
+</a>
+
+</div>
+</div>
+
+</div>
+
+<!-- SOCIAL ICONS ROW -->
+<div class="row justify-content-center g-5">
+
+<!-- LINKEDIN -->
+<div class="col-6 col-md-2 text-center">
+<a href="https://www.linkedin.com/in/nithya-shree123"
+   target="_blank"
+   class="text-white text-decoration-none">
+
+<div class="social-circle mx-auto">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="28"
+     height="28"
+     fill="currentColor"
+     viewBox="0 0 16 16">
+  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zM3.742 5.11c.837 0 1.358-.554 1.358-1.248-.015-.709-.521-1.248-1.342-1.248-.822 0-1.358.539-1.358 1.248 0 .694.521 1.248 1.327 1.248h.015zm4.908 8.284V9.359c0-.216.016-.432.08-.586.173-.432.567-.88 1.23-.88.868 0 1.215.664 1.215 1.637v3.864h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169H6.247c.03.664 0 7.225 0 7.225h2.403z"/>
+</svg>
+
+</div>
+<div class="mt-2">LinkedIn</div>
+</a>
+</div>
+
+<!-- GITHUB -->
+<div class="col-6 col-md-2 text-center">
+<a href="https://github.com/nithyashree1007"
+   target="_blank"
+   class="text-white text-decoration-none">
+
+<div class="social-circle mx-auto">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="28"
+     height="28"
+     fill="currentColor"
+     viewBox="0 0 16 16">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+  -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87
+  2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+  0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21
+  2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09
+  2 .27 1.53-1.04 2.2-.82 2.2-.82.44
+  1.1.16 1.92.08 2.12.51.56.82
+  1.27.82 2.15 0 3.07-1.87
+  3.75-3.65 3.95.29.25.54.73.54
+  1.48 0 1.07-.01 1.93-.01
+  2.2 0 .21.15.46.55.38A8.013
+  8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+</svg>
+
+</div>
+<div class="mt-2">GitHub</div>
+</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- ================= PROJECT MODALS ================= -->
+
+<!-- ================= PROJECT 1 ================= -->
+<div class="modal fade" id="modal1" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Habit Tracker Dashboard</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Carousel -->
+        <div id="carousel1" class="carousel slide mb-4">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/Project_details/Project1/dashboard1.png" class="d-block w-100 rounded">
+            </div>
+            <div class="carousel-item">
+              <img src="images/Project_details/Project1/dashboard2.png" class="d-block w-100 rounded">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <!-- Video -->
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.youtube.com/embed/odJmJ_j-fyc"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROJECT 2 ================= -->
+<div class="modal fade" id="modal2" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Cash Flow & Expense Intelligence</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <img src="images/Project_details/Project2/dashboard1.png" class="w-100 rounded mb-4">
+
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.youtube.com/embed/YOez89MMReE"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROJECT 3 ================= -->
+<div class="modal fade" id="modal3" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Marketing Performance & ROI</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <img src="images/Project_details/Project3/dashboard1.png" class="w-100 rounded mb-4">
+
+        <p class="text-muted text-center">
+          Demo video not available for this project.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROJECT 4 ================= -->
+<div class="modal fade" id="modal4" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Campaign Performance Dashboard</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <img src="images/Project_details/Project4/dashboard1.png" class="w-100 rounded mb-4">
+
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.youtube.com/embed/3BKOFldUEpg"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROJECT 5 ================= -->
+<div class="modal fade" id="modal5" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Superstore Sales Analysis</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <div id="carousel5" class="carousel slide mb-4">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/Project_details/Project5/dashboard1.png" class="d-block w-100 rounded">
+            </div>
+            <div class="carousel-item">
+              <img src="images/Project_details/Project5/dashboard2.png" class="d-block w-100 rounded">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.youtube.com/embed/N_GdF_ryETk"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROJECT 6 ================= -->
+<div class="modal fade" id="modal6" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">KFC Sales & Offer Analysis</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <div id="carousel6" class="carousel slide mb-4">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/Project_details/Project6/dashboard1.png" class="d-block w-100 rounded">
+            </div>
+            <div class="carousel-item">
+              <img src="images/Project_details/Project6/dashboard2.png" class="d-block w-100 rounded">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.youtube.com/embed/aOFVygztZyY"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+</body>
+</html>
